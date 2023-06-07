@@ -577,6 +577,10 @@ video {
   width: 100%;
 }
 
+.max-w-\[1600px\] {
+  max-width: 1600px;
+}
+
 .grid-cols-\[repeat\(auto-fit\2c _minmax\(185px\2c _278px\)\)\] {
   grid-template-columns: repeat(auto-fit, minmax(185px, 278px));
 }
