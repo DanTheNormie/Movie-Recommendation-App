@@ -36,6 +36,8 @@ async function getMovies(){
 
 
 function populate_grid(movies_arr){
+
+    movies_grid.innerHTML = '';
     
     for(let movie of movies_arr){
         const element = document.createElement('div');
@@ -50,5 +52,23 @@ function populate_grid(movies_arr){
         movies_grid.append(element)
     }
 
-    saveToLocalDatabase()
+    sendDataToServer(movies_arr)
+}
+
+async function sendDataToServer(movies_arr){
+    try{
+        const res = await fetch('/',{
+            method:'POST',
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({'movies':movies_arr})
+        })
+        const res_json = await res.json()
+
+        console.log(res_json)
+    }catch(err){
+        console.log(err);
+    }
+
+
+    
 }
